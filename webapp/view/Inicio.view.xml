@@ -1,0 +1,47 @@
+<mvc:View controllerName="projectnetflix.controller.Inicio"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:layout="sap.ui.layout"
+    xmlns="sap.m">
+    <Page id="idPage" title="{i18n>title}">
+      <subHeader>
+        <Toolbar>
+
+            <content>
+                <Link text="INICIO" press="onInicioLinkPress"/>
+                <Link text="FILMES"/>
+                <Link text="SÉRIES"/>
+                <ToolbarSpacer ></ToolbarSpacer>
+                
+                <SearchField width="30%" id="idSearchField" search="onBuscarDados"></SearchField>
+                
+            </content>
+        </Toolbar>
+      </subHeader>
+      
+      <content>
+        <layout:Grid content="{APINetflix>/titles}" >
+            <VBox width="300px" height="350px" class="preencherBoxPreto">
+                <Image src="{APINetflix>jawSummary/backgroundImage/url}"
+                    width="100%" height="100%" />
+    
+                     <Image src="{APINetflix>jawSummary/logoImage/url}"
+                    width="60%" height="60%" class="margemLogo"/>
+
+                <Text text="{APINetflix>jawSummary/title}"   class="corTextoVermelho espacoRodape margemLogo"/>
+                <Text text="{APINetflix>jawSummary/synopsis}" class="corTextoBranco espacoRodape margemLogo" />
+                <Text text="{APINetflix>jawSummary/genres/1/name}" class="corTextoBranco espacoRodape margemLogo"/>
+                <Text text="{APINetflix>jawSummary/genres/2/name}" class="corTextoBranco espacoRodape margemLogo"/>    
+            </VBox>
+
+          <!--   <VBox width="300px" height="350px" class="preencherBoxPreto">
+                <Image src="../img/cobrakai.jpg"
+                    width="100%" height="100%" />
+                <Text text="Cobra Kai" class="corTextoBranco" />
+                <Text text="5 Temporadas" class="corTextoBranco" />
+                <Text text="Categoria Ação" class="corTextoBranco" />    
+                <Text text="Categoria Luta" class="corTextoBranco" /> 
+            </VBox> -->
+        </layout:Grid>
+      </content>
+    </Page>
+</mvc:View>
